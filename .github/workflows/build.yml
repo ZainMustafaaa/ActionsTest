@@ -28,44 +28,44 @@ jobs:
           name: app-release.apk
           path: ./android/app/build/outputs/apk/release/app-release.apk
 
-    build-ios:
-        runs-on: macOS-latest
+  build-ios:
+    runs-on: macOS-latest
         steps:
-            - uses: actions/checkout@v1
-            - name: Install gpg
-               run:  brew install gnupg
-            - name: Switch XCode Version
-               run: sudo xcode-select -s /Applications/Xcode_11.2.app
-            - uses: actions/setup-node@v1
-              with:
-                node-version: ${{ matrix.node-version }}
-            - uses: actions/checkout@v1
-            - name: Install dependencies
-               run: |
-                    yarn install
-            - name: Install Cocoapods
-               run: gem install cocoapods
+          - uses: actions/checkout@v1
+          - name: Install gpg
+            run:  brew install gnupg
+          - name: Switch XCode Version
+            run: sudo xcode-select -s /Applications/Xcode_11.2.app
+          - uses: actions/setup-node@v1
+            with:
+              node-version: ${{ matrix.node-version }}
+          - uses: actions/checkout@v1
+          - name: Install dependencies
+            run: |
+                yarn install
+          - name: Install Cocoapods
+            run: gem install cocoapods
 
-            - name: Install pod dependencies
-               run: |
-                    cd ios
-                    pod install
-             shell: bash
-            - name: Setup provisioning profile
-               run: ./.github/secrets/decrypt_secrets.sh
-               env:
-                    IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
-            - name: Build app
-               run: |
-                    cd ios && xcodebuild -workspace ActionsTest.xcworkspace \
-                    -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive
-            - name: Export app
-               run: |
-                    cd ios && xcodebuild -exportArchive -archivePath $PWD/build/ActionsTest.xcarchive \
-                    -exportOptionsPlist ActionsTest/Info.plist -exportPath $PWD/build
-            - uses: actions/upload-artifact@v2
-              with:
-                name: ActionsTest.ipa
-                path: ./ios/build/ActionsTest.ipa
+          - name: Install pod dependencies
+            run: |
+                cd ios
+                pod install
+            shell: bash
+          - name: Setup provisioning profile
+            run: ./.github/secrets/decrypt_secrets.sh
+            env:
+                IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
+          - name: Build app
+            run: |
+                cd ios && xcodebuild -workspace ActionsTest.xcworkspace \
+                -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive
+          - name: Export app
+            run: |
+                cd ios && xcodebuild -exportArchive -archivePath $PWD/build/ActionsTest.xcarchive \
+                -exportOptionsPlist ActionsTest/Info.plist -exportPath $PWD/build
+          - uses: actions/upload-artifact@v2
+            with:
+              name: ActionsTest.ipa
+              path: ./ios/build/ActionsTest.ipa
 
         #   xcodebuild -workspace ActionsTest.xcworkspace -configuration Debug -scheme ActionsTest -destination id=59F60AFA-F216-408D-8F21-B40D7E5CBE8D

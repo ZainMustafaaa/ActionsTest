@@ -1,0 +1,28 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: |
+          yarn install
+      - uses: vgaidarji/android-github-actions-build@v1.0.1
+        with:
+            node-version: ${{ matrix.node-version }}
+      - name: Run Gradle command
+        run: |
+            yarn androidBuild
+      - uses: actions/upload-artifact@v2
+        with:
+          name: app-release.apk
+          path: ./android/app/build/outputs/apk/release/app-release.apk

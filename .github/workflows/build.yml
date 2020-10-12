@@ -21,7 +21,8 @@ jobs:
             node-version: ${{ matrix.node-version }}
       - name: Run Gradle command
         run: |
-            yarn androidBuild
+            cd ./android &&
+            ./gradlew assemble --stacktrace
       - uses: actions/upload-artifact@v2
         with:
           name: app-release.apk

@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "androidBuild": "rm -rf android/app/src/main/assets/shell-app-manifest.json && rm -rf android/app/src/main/assets/shell-app.bundle && expo publish && cd android && ./gradlew assemble",
     "test": "jest",
     "lint": "eslint ."
   },

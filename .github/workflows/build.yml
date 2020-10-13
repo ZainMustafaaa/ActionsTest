@@ -57,7 +57,7 @@ jobs:
         - name: Build app
           run: |
             cd ios && xcodebuild -workspace ActionsTest.xcworkspace \
-            -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive IPHONEOS_DEPLOYMENT_TARGET=8
+            -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive IPHONEOS_DEPLOYMENT_TARGET=10
           env:
             IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
         - name: Export app

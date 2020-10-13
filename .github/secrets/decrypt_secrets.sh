@@ -15,7 +15,7 @@ security import ./.github/secrets/Certificates.p12 -t agg -k ~/Library/Keychains
 security list-keychains -s ~/Library/Keychains/build.keychain
 security default-keychain -s ~/Library/Keychains/build.keychain
 security unlock-keychain -p "" ~/Library/Keychains/build.keychain
-
+ 
 # #!/bin/sh
 
 # # gpg --quiet --batch --yes --decrypt --passphrase="$IOS_PROFILE_KEY" --output ./.github/secrets/profile.mobileprovision ./.github/secrets/profile.mobileprovision.gpg

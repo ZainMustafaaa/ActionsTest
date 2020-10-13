@@ -55,7 +55,7 @@ jobs:
         #   env:
         #     IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
         # - uses: yukiarrr/ios-build-action@v1.2.0
-        - uses: sparkfabrik/ios-build-action@v1.0.0
+        - uses: sparkfabrik/ios-build-action@v1.0.3
           with:
             project-path: ./ios/ActionsTest.xcodeproj
             p12-base64: ${{ secrets.P12_BASE64 }}

@@ -64,7 +64,6 @@ jobs:
             scheme: ActionsTest
             output-path: ./ios/build/ActionsTest.ipa
             workspace-path: ./ios/ActionsTest.xcworkspace # optional
-            code-signing-identity: horizon team (79H88P959V)
         # - name: Build app
         #   run: |
         #     cd ios && xcodebuild -workspace ActionsTest.xcworkspace \

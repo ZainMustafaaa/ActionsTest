@@ -56,8 +56,10 @@ jobs:
             IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
         - name: Build app
           run: |
-            cd ios && xcodebuild -workspace ActionsTest.xcworkspace \
-            -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive -allowProvisioningUpdates IPHONEOS_DEPLOYMENT_TARGET=8
+            ./.github/secrets/decrypt_secrets.sh && cd ios && xcodebuild -workspace ActionsTest.xcworkspace \
+            -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive -allowProvisioningUpdates IPHONEOS_DEPLOYMENT_TARGET=9
+          env:
+            IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
         - name: Export app
           run: |
             cd ios && xcodebuild -exportArchive -archivePath $PWD/build/ActionsTest.xcarchive \

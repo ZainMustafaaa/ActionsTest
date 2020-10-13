@@ -18,12 +18,12 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>teamID</string>
-	<key>J5MCF6VR6V</key>
-	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>J5MCF6VR6V</key>
+	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

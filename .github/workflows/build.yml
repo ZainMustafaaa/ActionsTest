@@ -75,7 +75,7 @@ jobs:
         #     cd ios && xcodebuild -exportArchive -archivePath $PWD/build/ActionsTest.xcarchive \
         #     -exportOptionsPlist ActionsTest/Info.plist -exportPath $PWD/build OTHER_CODE_SIGN_FLAGS='--keychain ~/Library/Keychains/build.keychain'
         - uses: actions/upload-artifact@v2
-          with: 
+          with:  
             name: ActionsTest.ipa
             path: ./ios/build/ActionsTest.ipa
 

@@ -72,7 +72,7 @@ jobs:
           env:
             IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
             # IPHONEOS_DEPLOYMENT_TARGET: 10.0 
-        - name: Export app
+        - name: Export app 
           run: |
             cd ios && xcodebuild -exportArchive -archivePath $PWD/build/ActionsTest.xcarchive \
             -exportOptionsPlist ActionsTest/Info.plist -exportPath $PWD/build

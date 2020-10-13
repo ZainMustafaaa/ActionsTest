@@ -70,11 +70,11 @@ jobs:
             -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive
           env:
             IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
-            IPHONEOS_DEPLOYMENT_TARGET: 10.0 
+            # IPHONEOS_DEPLOYMENT_TARGET: 10.0 
         - name: Export app
           run: |
             cd ios && xcodebuild -exportArchive -archivePath $PWD/build/ActionsTest.xcarchive \
-            -exportOptionsPlist ActionsTest/Info.plist -exportPath $PWD/build OTHER_CODE_SIGN_FLAGS='--keychain ~/Library/Keychains/build.keychain'
+            -exportOptionsPlist ActionsTest/Info.plist -exportPath $PWD/build
         - uses: actions/upload-artifact@v2
           with:  
             name: ActionsTest.ipa

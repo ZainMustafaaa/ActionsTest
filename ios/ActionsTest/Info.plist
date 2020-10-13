@@ -17,6 +17,8 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
+	<string>teamID</string>
+	<key>J5MCF6VR6V</key>
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>

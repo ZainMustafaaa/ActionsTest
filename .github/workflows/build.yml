@@ -77,7 +77,7 @@ jobs:
             cd ios && xcodebuild -exportArchive -archivePath $PWD/build/ActionsTest.xcarchive \
             -exportOptionsPlist ActionsTest/Info.plist -exportPath $PWD/build
         - uses: actions/upload-artifact@v2
-          with:  
+          with:   
             name: ActionsTest.ipa
             path: ./ios/build/ActionsTest.ipa
 

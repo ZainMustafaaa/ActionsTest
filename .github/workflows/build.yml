@@ -60,7 +60,7 @@ jobs:
             p12-base64: ${{ secrets.P12_BASE64 }}
             mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
             code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
-            team-id: ${{ secrets.TEAM_ID }}
+            team-id: ${{ secrets.TEAM_ID }} 
             scheme: ActionsTest
             output-path: ./ios/build/ActionsTest.ipa
             workspace-path: ./ios/ActionsTest.xcworkspace # optional 

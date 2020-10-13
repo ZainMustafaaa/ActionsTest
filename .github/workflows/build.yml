@@ -68,7 +68,7 @@ jobs:
         - name: Build app
           run: |
             cd ios && xcodebuild -workspace ActionsTest.xcworkspace \
-            -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive
+            -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive -allowProvisioningUpdates
           env:
             IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
             # IPHONEOS_DEPLOYMENT_TARGET: 10.0 

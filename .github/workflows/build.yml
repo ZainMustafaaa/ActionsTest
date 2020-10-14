@@ -62,6 +62,7 @@ jobs:
             code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
             team-id: ${{ secrets.TEAM_ID }}
             scheme: ActionsTest
+            export-method: enterprise
             output-path: ./ios/build/ActionsTest.ipa
             workspace-path: ./ios/ActionsTest.xcworkspace # optional
  

@@ -10,7 +10,7 @@ cp ./.github/secrets/distributionv1.mobileprovision ~/Library/MobileDevice/Provi
 
 
 security create-keychain -p "" build.keychain
-security import ./.github/secrets/certificate.p12 -t agg -k ~/Library/Keychains/build.keychain -P "" -A
+security import ./.github/secrets/certificate.p12 -t agg -k ~/Library/Keychains/build.keychain -P "12345" -A
 
 security list-keychains -s ~/Library/Keychains/build.keychain
 security default-keychain -s ~/Library/Keychains/build.keychain

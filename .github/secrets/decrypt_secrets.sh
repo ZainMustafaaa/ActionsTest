@@ -1,12 +1,12 @@
 #!/bin/sh
 # set -eo pipefail
 
-# gpg --quiet --batch --yes --decrypt --passphrase="$IOS_PROFILE_KEY" --output ./.github/secrets/distributionv1.mobileprovision ./.github/secrets/distributionv1.mobileprovision.gpg
+# gpg --quiet --batch --yes --decrypt --passphrase="$IOS_PROFILE_KEY" --output ./.github/secrets/b9ac9e25-cee2-40bf-9d7c-8fdf7c24764e.mobileprovision ./.github/secrets/b9ac9e25-cee2-40bf-9d7c-8fdf7c24764e.mobileprovision.gpg
 # gpg --quiet --batch --yes --decrypt --passphrase="$IOS_PROFILE_KEY" --output ./.github/secrets/certificate.p12 ./.github/secrets/certificate.p12.gpg
 
 # mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 
-# cp ./.github/secrets/distributionv1.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/distributionv1.mobileprovision
+# cp ./.github/secrets/b9ac9e25-cee2-40bf-9d7c-8fdf7c24764e.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/b9ac9e25-cee2-40bf-9d7c-8fdf7c24764e.mobileprovision
 
 
 # security create-keychain -p certificate.p12 build.keychain
@@ -18,12 +18,12 @@
  
 # #!/bin/sh 
 
-# # gpg --quiet --batch --yes --decrypt --passphrase="$IOS_PROFILE_KEY" --output ./.github/secrets/distributionv1.mobileprovision ./.github/secrets/distributionv1.mobileprovision.gpg
+# # gpg --quiet --batch --yes --decrypt --passphrase="$IOS_PROFILE_KEY" --output ./.github/secrets/b9ac9e25-cee2-40bf-9d7c-8fdf7c24764e.mobileprovision ./.github/secrets/b9ac9e25-cee2-40bf-9d7c-8fdf7c24764e.mobileprovision.gpg
 # # gpg --quiet --batch --yes --decrypt --passphrase="$IOS_PROFILE_KEY" --output ./.github/secrets/certificate.p12 ./.github/secrets/certificate.p12.gpg
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 
-cp ./.github/secrets/distributionv1.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/distributionv1.mobileprovision
+cp ./.github/secrets/b9ac9e25-cee2-40bf-9d7c-8fdf7c24764e.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/b9ac9e25-cee2-40bf-9d7c-8fdf7c24764e.mobileprovision
 
 
 security create-keychain -p "" build.keychain

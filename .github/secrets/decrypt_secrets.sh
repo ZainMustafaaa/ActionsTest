@@ -16,7 +16,7 @@ security list-keychains -s ~/Library/Keychains/build.keychain
 security default-keychain -s ~/Library/Keychains/build.keychain
 security unlock-keychain -p "" ~/Library/Keychains/build.keychain
  
-# #!/bin/sh
+# #!/bin/sh 
 
 # # gpg --quiet --batch --yes --decrypt --passphrase="$IOS_PROFILE_KEY" --output ./.github/secrets/mprofile.mobileprovision ./.github/secrets/mprofile.mobileprovision.gpg
 # # gpg --quiet --batch --yes --decrypt --passphrase="$IOS_PROFILE_KEY" --output ./.github/secrets/Certificate.p12 ./.github/secrets/Certificate.p12.gpg

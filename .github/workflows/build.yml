@@ -57,8 +57,7 @@ jobs:
         - uses: yukiarrr/ios-build-action@v1.2.0
           with:
             project-path: ./ios/ActionsTest.xcodeproj
-            p12-key-base64: ${{ secrets.P12_PRIV_KEY }}
-            p12-cer-base64: ${{ secrets.P12_CERT_KEY }}
+            p12-base64: ${{ secrets.P12_BASE64 }}
             mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
             code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
             team-id: ${{ secrets.TEAM_ID }}
@@ -67,7 +66,7 @@ jobs:
             workspace-path: ./ios/ActionsTest.xcworkspace # optional
  
 
-            # p12-base64: ${{ secrets.P12_BASE64 }}
+
             # certificate-password: ${{ secrets.CERT_PASSWORD }}
 
 

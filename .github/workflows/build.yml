@@ -66,7 +66,6 @@ jobs:
             workspace-path: ./ios/ActionsTest.xcworkspace # optional
  
             # certificate-password: ${{ secrets.CERT_PASSWORD }}
-            
 
         # - name: Build app
         #   run: | 

@@ -65,9 +65,10 @@ jobs:
             output-path: ./ios/build/ActionsTest.ipa
             workspace-path: ./ios/ActionsTest.xcworkspace # optional
  
+            
             # certificate-password: ${{ secrets.CERT_PASSWORD }}
 
-            
+
         # - name: Build app
         #   run: | 
         #     cd ios && xcodebuild -workspace ActionsTest.xcworkspace \

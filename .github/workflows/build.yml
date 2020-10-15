@@ -54,34 +54,34 @@ jobs:
           run: ./.github/secrets/decrypt_secrets.sh
           env:
             IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
-        # - uses: yukiarrr/ios-build-action@v1.2.0 
-        #   with:
-        #     project-path: ./ios/ActionsTest.xcodeproj
-        #     p12-base64: ${{ secrets.P12_BASE64 }}
-        #     mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-        #     code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
-        #     team-id: ${{ secrets.TEAM_ID }}
-        #     certificate-password: ${{ secrets.CERT_PASSWORD }}
-        #     scheme: ActionsTest
-        #     export-method: enterprise
-        #     output-path: ./ios/build/ActionsTest.ipa
-        #     workspace-path: ./ios/ActionsTest.xcworkspace # optional
+        - uses: yukiarrr/ios-build-action@v1.2.0 
+          with:
+            project-path: ./ios/ActionsTest.xcodeproj
+            p12-base64: ${{ secrets.P12_BASE64 }}
+            mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+            code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
+            team-id: ${{ secrets.TEAM_ID }}
+            certificate-password: ${{ secrets.CERT_PASSWORD }}
+            scheme: ActionsTest
+            export-method: enterprise
+            output-path: ./ios/build/ActionsTest.ipa
+            workspace-path: ./ios/ActionsTest.xcworkspace # optional
  
 
             # certificate-password: ${{ secrets.CERT_PASSWORD }}
 
 
-        - name: Build app
-          run: | 
-            cd ios && xcodebuild -workspace ActionsTest.xcworkspace \
-            -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive
-          env:
-            IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
+        # - name: Build app
+        #   run: | 
+        #     cd ios && xcodebuild -workspace ActionsTest.xcworkspace \
+        #     -scheme ActionsTest -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/ActionsTest.xcarchive
+        #   env:
+        #     IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
             # IPHONEOS_DEPLOYMENT_TARGET: 10.0 
-        - name: Export app 
-          run: |
-            cd ios && xcodebuild -exportArchive -archivePath $PWD/build/ActionsTest.xcarchive \
-            -exportOptionsPlist ActionsTest/Info.plist -exportPath $PWD/build
+        # - name: Export app 
+        #   run: |
+        #     cd ios && xcodebuild -exportArchive -archivePath $PWD/build/ActionsTest.xcarchive \
+        #     -exportOptionsPlist ActionsTest/Info.plist -exportPath $PWD/build
         - uses: actions/upload-artifact@v2 
           with:    
             name: ActionsTest.ipa

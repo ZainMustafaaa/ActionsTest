@@ -61,7 +61,6 @@ jobs:
             mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
             code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
             team-id: ${{ secrets.TEAM_ID }}
-            certificate-password: ${{ secrets.CERT_PASSWORD }}
             scheme: ActionsTest
             export-method: enterprise
             output-path: ./ios/build/ActionsTest.ipa

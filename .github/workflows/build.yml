@@ -23,11 +23,11 @@ jobs:
         run: |
             cd ./android &&
             ./gradlew assemble --stacktrace
-      - uses: actions/upload-artifact@v2
-        with:
-          name: app-release.apk
-          path: ./android/app/build/outputs/apk/release/app-release.apk
-      - uses: actions/checkout@master
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: app-release.apk
+      #     path: ./android/app/build/outputs/apk/release/app-release.apk
+      # - uses: actions/checkout@master
       - uses: shallwefootball/s3-upload-action@master
         with:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
@@ -93,7 +93,7 @@ jobs:
           with:    
             name: ActionsTest.ipa
             path: ./ios/build/ActionsTest.ipa
-        - uses: actions/checkout@master
+        # - uses: actions/checkout@master
         - uses: shallwefootball/s3-upload-action@master
           with:
             aws_key_id: ${{ secrets.AWS_KEY_ID }}

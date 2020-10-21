@@ -27,7 +27,14 @@ jobs:
         with:
           name: app-release.apk
           path: ./android/app/build/outputs/apk/release/app-release.apk
-
+      - uses: actions/checkout@master
+      - uses: shallwefootball/s3-upload-action@master
+        with:
+          aws_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          aws_bucket: ${{ secrets.AWS_BUCKET }}
+          source_dir: ./android/app/build/outputs/apk/release/app-release.apk
+          destination_dir: builds/android/android.apk
   build-ios:
     runs-on: macOS-10.15
     steps:
@@ -86,6 +93,13 @@ jobs:
           with:    
             name: ActionsTest.ipa
             path: ./ios/build/ActionsTest.ipa
-
+        - uses: actions/checkout@master
+        - uses: shallwefootball/s3-upload-action@master
+          with:
+            aws_key_id: ${{ secrets.AWS_KEY_ID }}
+            aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+            aws_bucket: ${{ secrets.AWS_BUCKET }}
+            source_dir: ./ios/build/ActionsTest.ipa
+            destination_dir: builds/ios/iOS.ipa
 
         #   xcodebuild -workspace ActionsTest.xcworkspace -configuration Debug -scheme ActionsTest -destination id=59F60AFA-F216-408D-8F21-B40D7E5CBE8D

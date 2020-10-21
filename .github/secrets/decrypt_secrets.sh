@@ -1,7 +1,6 @@
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 
 cp ./.github/secrets/provissioning.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/provissioning.mobileprovision
-# bc07e9c5-bf69-404b-ad84-73d9f80aea1b.mobileprovision
 KEYCHAIN="MyApp$$.keychain"
 KEYCHAIN_PASSWORD="MyApp"
 

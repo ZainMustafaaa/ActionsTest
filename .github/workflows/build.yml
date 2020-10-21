@@ -33,8 +33,8 @@ jobs:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: ./android/app/build/outputs/apk/release/app-release.apk
-          destination_dir: builds/android/android.apk
+          source_dir: ./android/app/build/outputs/apk/release/
+          destination_dir: builds/android/
   build-ios:
     runs-on: macOS-10.15
     steps:

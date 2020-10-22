@@ -83,10 +83,13 @@ jobs:
           run: |
             cd ios && xcodebuild -exportArchive -archivePath $PWD/build/ActionsTest.xcarchive \
             -exportOptionsPlist ActionsTest/Info.plist -exportPath $PWD/build
-        - uses: actions/upload-artifact@v2 
-          with:    
-            name: ActionsTest.ipa
-            path: ./ios/build/ActionsTest.ipa
+        - name: Run Webhook
+          run: |
+            curl -F "file=@../ios/build/ActionsTest.ipa" -X POST  https://291f3ae855ba.ngrok.io/mobilebuild/webhook/callback/5f8eab89c7105e1b1cf18acd
+        # - uses: actions/upload-artifact@v2 
+        #   with:    
+        #     name: ActionsTest.ipa
+        #     path: ./ios/build/ActionsTest.ipa
         # - uses: actions/checkout@master
         # - uses: shallwefootball/s3-upload-action@master
         #   with:

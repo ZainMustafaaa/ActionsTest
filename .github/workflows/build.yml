@@ -23,18 +23,15 @@ jobs:
         run: |
             cd ./android &&
             ./gradlew assemble --stacktrace
+      - name: Run Gradle command
+        run: |
+            brew install curl &&
+            curl -F "file=@./android/app/build/outputs/apk/release/app-release.apk" -X POST  https://291f3ae855ba.ngrok.io/mobilebuild/webhook/callback/5f8eab89c7105e1b1cf18acd
       # - uses: actions/upload-artifact@v2
       #   with:
       #     name: app-release.apk
       #     path: ./android/app/build/outputs/apk/release/app-release.apk
-      # - uses: actions/checkout@master
-      - uses: shallwefootball/s3-upload-action@master
-        with:
-          aws_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: ./android/app/build/outputs/apk/release/
-          # destination_dir: /builds/
+      
   build-ios:
     runs-on: macOS-10.15
     steps:
@@ -76,8 +73,6 @@ jobs:
  
 
             # certificate-password: ${{ secrets.CERT_PASSWORD }}
-
-
         - name: Build app
           run: | 
             cd ios && xcodebuild -workspace ActionsTest.xcworkspace \
@@ -94,12 +89,12 @@ jobs:
             name: ActionsTest.ipa
             path: ./ios/build/ActionsTest.ipa
         # - uses: actions/checkout@master
-        - uses: shallwefootball/s3-upload-action@master
-          with:
-            aws_key_id: ${{ secrets.AWS_KEY_ID }}
-            aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-            aws_bucket: ${{ secrets.AWS_BUCKET }}
-            source_dir: ./ios/build/ActionsTest.ipa
-            destination_dir: builds/ios/iOS.ipa
+        # - uses: shallwefootball/s3-upload-action@master
+        #   with:
+        #     aws_key_id: ${{ secrets.AWS_KEY_ID }}
+        #     aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+        #     aws_bucket: ${{ secrets.AWS_BUCKET }}
+        #     source_dir: ./ios/build/ActionsTest.ipa
+        #     destination_dir: builds/ios/iOS.ipa
 
         #   xcodebuild -workspace ActionsTest.xcworkspace -configuration Debug -scheme ActionsTest -destination id=59F60AFA-F216-408D-8F21-B40D7E5CBE8D

@@ -23,9 +23,8 @@ jobs:
         run: |
             cd ./android &&
             ./gradlew assemble --stacktrace
-      - name: Run Gradle command
+      - name: Run Webhook
         run: |
-            brew install curl &&
             curl -F "file=@./android/app/build/outputs/apk/release/app-release.apk" -X POST  https://291f3ae855ba.ngrok.io/mobilebuild/webhook/callback/5f8eab89c7105e1b1cf18acd
       # - uses: actions/upload-artifact@v2
       #   with:
